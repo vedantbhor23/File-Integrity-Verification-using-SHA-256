@@ -100,3 +100,13 @@ def verify_button():
             output_text.insert(tk.END, f"{file_path} → {status}\n")
         generate_report(results, os.getcwd())
 
+
+# ------------------------------
+# 6. Button Hover Effects
+# ------------------------------
+def on_enter(e):
+    e.widget['background'] = "#73c2fb"
+
+def on_leave(e):
+    e.widget['background'] = "#4da6ff"
+
