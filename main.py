@@ -174,3 +174,16 @@ file_list_label.pack(anchor="w", padx=20)
 file_list = scrolledtext.ScrolledText(root, height=7, width=90, font=("Consolas", 10))
 file_list.pack(padx=20, pady=5)
 
+# Output section
+output_label = tk.Label(root, text="🧾 Verification Output:", bg="#f3f4fb", font=("Segoe UI", 11, "bold"), fg="#333")
+output_label.pack(anchor="w", padx=20, pady=(10, 0))
+
+output_text = scrolledtext.ScrolledText(root, height=10, width=90, font=("Consolas", 10))
+output_text.pack(padx=20, pady=5)
+
+
+# Footer
+footer = tk.Label(root, text="© 2025 Cyber Forensics Lab | Powered by SHA-256 Verification", bg="#f3f4fb", fg="#777", font=("Segoe UI", 9))
+footer.pack(side="bottom", pady=10)
+
+root.mainloop()
