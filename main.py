@@ -20,3 +20,16 @@ def calculate_hash(file_path):
         return None
 
 
+# ------------------------------
+# 2. Store initial hashes
+# ------------------------------
+def store_hashes(file_paths, db_file="hashes.json"):
+    hashes = {}
+    for file_path in file_paths:
+        file_hash = calculate_hash(file_path)
+        if file_hash:
+            hashes[file_path] = file_hash
+    with open(db_file, "w") as f:
+        json.dump(hashes, f)
+    messagebox.showinfo("✅ Success", f"Hashes stored in {db_file}")
+
