@@ -58,3 +58,19 @@ def verify_all(db_file="hashes.json"):
     return results
 
 
+# ------------------------------
+# 4. Generate forensic report
+# ------------------------------
+def generate_report(results, report_dir="."):
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    report_name = f"Forensic_Report_{timestamp}.txt"
+    report_path = os.path.join(report_dir, report_name)
+
+    with open(report_path, "w", encoding="utf-8") as report:
+        for file_path, status in results.items():
+            line = f"{file_path} → {status}\n"
+            report.write(line)
+
+    messagebox.showinfo("📄 Report Generated", f"Forensic report saved at:\n{report_path}")
+
+
