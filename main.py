@@ -33,3 +33,28 @@ def store_hashes(file_paths, db_file="hashes.json"):
         json.dump(hashes, f)
     messagebox.showinfo("✅ Success", f"Hashes stored in {db_file}")
 
+
+# ------------------------------
+# 3. Verify all files
+# ------------------------------
+def verify_all(db_file="hashes.json"):
+    if not os.path.exists(db_file):
+        messagebox.showerror("⚠️ Error", "No stored hashes found. Run 'Store Hashes' first.")
+        return None
+
+    with open(db_file, "r") as f:
+        stored_hashes = json.load(f)
+
+    results = {}
+    for file_path, old_hash in stored_hashes.items():
+        new_hash = calculate_hash(file_path)
+        if not new_hash:
+            status = "❌ File not found"
+        elif old_hash == new_hash:
+            status = "✅ SAFE"
+        else:
+            status = "⚠️ MODIFIED"
+        results[file_path] = status
+    return results
+
+
