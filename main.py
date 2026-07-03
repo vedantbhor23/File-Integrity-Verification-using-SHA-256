@@ -135,3 +135,34 @@ header_text = header.create_text(
     font=("Segoe UI", 20, "bold"),
     fill="white"
 )
+
+
+# Frame for buttons
+frame = tk.Frame(root, bg="#f3f4fb")
+frame.pack(pady=20)
+
+style = {
+    "bg": "#4da6ff",
+    "fg": "white",
+    "font": ("Segoe UI", 10, "bold"),
+    "relief": "flat",
+    "width": 15,
+    "height": 2,
+    "bd": 0
+}
+
+browse_btn = tk.Button(frame, text="📁 Browse Files", command=browse_files, **style)
+browse_btn.grid(row=0, column=0, padx=10)
+browse_btn.bind("<Enter>", on_enter)
+browse_btn.bind("<Leave>", on_leave)
+
+store_btn = tk.Button(frame, text="💾 Store Hashes", command=store_hash_button, **style)
+store_btn.grid(row=0, column=1, padx=10)
+store_btn.bind("<Enter>", on_enter)
+store_btn.bind("<Leave>", on_leave)
+
+verify_btn = tk.Button(frame, text="🧩 Verify Files", command=verify_button, **style)
+verify_btn.grid(row=0, column=2, padx=10)
+verify_btn.bind("<Enter>", on_enter)
+verify_btn.bind("<Leave>", on_leave)
+
