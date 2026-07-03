@@ -110,3 +110,28 @@ def on_enter(e):
 def on_leave(e):
     e.widget['background'] = "#4da6ff"
 
+
+# ------------------------------
+# 7. Tkinter GUI Layout
+# ------------------------------
+root = tk.Tk()
+root.title("File Integrity Monitoring Tool")
+root.geometry("800x550")
+root.c
+onfigure(bg="#f3f4fb")
+
+# Header Frame with gradient effect using Canvas
+header = tk.Canvas(root, width=800, height=80, bg="#89cff0", highlightthickness=0)
+header.pack(fill="x")
+
+# Simulate a gradient by layering rectangles
+for i in range(80):
+    color = f"#89cff0"
+    header.create_rectangle(0, i, 800, i+1, fill=color, outline=color)
+
+header_text = header.create_text(
+    400, 40,
+    text="🔒 File Integrity Monitoring Tool",
+    font=("Segoe UI", 20, "bold"),
+    fill="white"
+)
