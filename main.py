@@ -5,7 +5,6 @@ import datetime
 import tkinter as tk
 from tkinter import filedialog, messagebox, scrolledtext
 
-
 # ------------------------------
 # 1. Calculate SHA-256 hash
 # ------------------------------
@@ -110,7 +109,6 @@ def on_enter(e):
 def on_leave(e):
     e.widget['background'] = "#4da6ff"
 
-
 # ------------------------------
 # 7. Tkinter GUI Layout
 # ------------------------------
@@ -135,7 +133,6 @@ header_text = header.create_text(
     font=("Segoe UI", 20, "bold"),
     fill="white"
 )
-
 
 # Frame for buttons
 frame = tk.Frame(root, bg="#f3f4fb")
@@ -166,7 +163,6 @@ verify_btn.grid(row=0, column=2, padx=10)
 verify_btn.bind("<Enter>", on_enter)
 verify_btn.bind("<Leave>", on_leave)
 
-
 # File list section
 file_list_label = tk.Label(root, text="📂 Selected Files:", bg="#f3f4fb", font=("Segoe UI", 11, "bold"), fg="#333")
 file_list_label.pack(anchor="w", padx=20)
@@ -175,12 +171,11 @@ file_list = scrolledtext.ScrolledText(root, height=7, width=90, font=("Consolas"
 file_list.pack(padx=20, pady=5)
 
 # Output section
-output_label = tk.Label(root, text="🧾 Verification Output:", bg="#f3f4fb", font=("Segoe UI", 11, "bold"), fg="#333")
+utput sectionoutput_label = tk.Label(root, text="🧾 Verification Output:", bg="#f3f4fb", font=("Segoe UI", 11, "bold"), fg="#333")
 output_label.pack(anchor="w", padx=20, pady=(10, 0))
 
 output_text = scrolledtext.ScrolledText(root, height=10, width=90, font=("Consolas", 10))
 output_text.pack(padx=20, pady=5)
-
 
 # Footer
 footer = tk.Label(root, text="© 2025 Cyber Forensics Lab | Powered by SHA-256 Verification", bg="#f3f4fb", fg="#777", font=("Segoe UI", 9))
