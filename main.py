@@ -74,3 +74,29 @@ def generate_report(results, report_dir="."):
     messagebox.showinfo("📄 Report Generated", f"Forensic report saved at:\n{report_path}")
 
 
+# ------------------------------
+# 5. GUI Functions
+# ------------------------------
+def browse_files():
+    files = filedialog.askopenfilenames(title="Select Files to Monitor")
+    file_list.delete(1.0, tk.END)
+    for f in files:
+        file_list.insert(tk.END, f + "\n")
+
+
+def store_hash_button():
+    files = file_list.get(1.0, tk.END).strip().split("\n")
+    if not files or files == ['']:
+        messagebox.showwarning("⚠️ No Files", "Please select files first.")
+        return
+    store_hashes(files)
+
+
+def verify_button():
+    results = verify_all()
+    if results:
+        output_text.delete(1.0, tk.END)
+        for file_path, status in results.items():
+            output_text.insert(tk.END, f"{file_path} → {status}\n")
+        generate_report(results, os.getcwd())
+
