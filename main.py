@@ -166,3 +166,11 @@ verify_btn.grid(row=0, column=2, padx=10)
 verify_btn.bind("<Enter>", on_enter)
 verify_btn.bind("<Leave>", on_leave)
 
+
+# File list section
+file_list_label = tk.Label(root, text="📂 Selected Files:", bg="#f3f4fb", font=("Segoe UI", 11, "bold"), fg="#333")
+file_list_label.pack(anchor="w", padx=20)
+
+file_list = scrolledtext.ScrolledText(root, height=7, width=90, font=("Consolas", 10))
+file_list.pack(padx=20, pady=5)
+
